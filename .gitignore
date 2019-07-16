@@ -1,0 +1,6 @@
+.cache/
+
+
+# Files produced by Vue.js
+dist/
+node_modules/
