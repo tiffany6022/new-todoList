@@ -2,15 +2,15 @@
 #app
   .ui.action.input
     input(type="text", v-model="todo")
-    button.ui.icon.button(@click="addTask(todo)")
+    button.ui.icon.button(@click="addTask()")
       i.plus.icon
 
   .ui.checkbox(v-for="task in tasks")
-    input(type="checkbox", :id="task.title", @click="toggle(task)")
+    input(type="checkbox", :id="task.title", @click="", v-model="task.done")
     label(:for="task.title", v-if="task.done")
       del {{ task.title }}
-      i.close.icon(@click="deleteTask(task)")
     label(:for="task.title", v-else) {{ task.title }}
+    i.close.icon(@click.stop="deleteTask(task)", v-if="task.done")
 </template>
 
 
@@ -23,7 +23,8 @@
       }
     },
     methods: {
-      addTask: function(tsk){
+      addTask: function(){
+        var tsk = this.todo;
         if(tsk){
           this.tasks.push({
             title: tsk,
@@ -32,20 +33,8 @@
           this.todo = "";
         }
       },
-      toggle: function(tsk){
-        console.log(this.tasks.indexOf(tsk));
-        console.log("toggle");
-        if(tsk.done){
-          tsk.done = false;
-        }
-        else{
-          tsk.done = true;
-        }
-      },
       deleteTask: function(tsk){
-        //console.log(this.tasks.indexOf(tsk));
         this.tasks.splice(this.tasks.indexOf(tsk), 1);
-        //console.log(this.tasks.indexOf(tsk));
       },
     },
   }
