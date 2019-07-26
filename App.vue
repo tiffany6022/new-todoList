@@ -14,7 +14,7 @@
       .icon
         i.edit.icon(@click="showDetails(task)")
         i.close.icon(@click="deleteTask(task)", v-if="task.done")
-    task-details(v-show="task.detail", :item="task", :key="task.title")
+    task-details(v-show="task.detail", :item="task")
 </template>
 
 
@@ -40,6 +40,7 @@
             title: tsk,
             done: false,
             detail: false,
+            content: "",
           });
           this.todo = "";
         }

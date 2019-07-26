@@ -1,6 +1,6 @@
 <template lang="pug">
 #taskdetails
-  textarea(v-model="content")
+  textarea(v-model="item.content", :keyup="$emit('item')")
   li {{item.title}}
 </template>
 
@@ -10,7 +10,6 @@
 
     data(){
       return{
-        content: "",
       }
     },
 
