@@ -14,7 +14,7 @@
       .icon
         i.edit.icon(@click="showDetails(task)")
         i.close.icon(@click="deleteTask(task)", v-if="task.done")
-    task-details(v-show="task.detail")
+    task-details(v-show="task.detail", :item="task", :key="task.title")
 </template>
 
 

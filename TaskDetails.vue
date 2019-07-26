@@ -1,6 +1,7 @@
 <template lang="pug">
 #taskdetails
   textarea(v-model="content")
+  li {{item.title}}
 </template>
 
 
@@ -12,6 +13,8 @@
         content: "",
       }
     },
+
+    props: ['item']
 
   }
 </script>
