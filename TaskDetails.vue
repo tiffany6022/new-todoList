@@ -1,7 +1,12 @@
 <template lang="pug">
 #taskdetails
-  textarea(v-model="item.content", :keyup="$emit('item')")
-  li {{item.title}}
+  .ui.transparent.left.icon.input
+    input(type="text", placeholder="日期", v-model="item.date", :keyup="$emit('item')")
+    i.calendar.alternate.outline.icon
+  br
+  .ui.transparent.left.icon.input
+    input(type="text", placeholder="詳細記事...", v-model="item.content", :keyup="$emit('item')")
+    i.pencil.alternate.icon
 </template>
 
 
@@ -21,6 +26,7 @@
 
 <style lang="sass">
   #taskdetails
+    padding-left: 2vw
     textarea
       width: 30vw
       height: 10vw

@@ -6,15 +6,16 @@
       i.plus.icon
   
   .ui.checkbox(v-for="task in tasks")
-    .task
+    .task(@click="toggleTask(task)")
       input(type="checkbox", v-model="task.done")
       label(v-if="task.done")
         del {{ task.title }}
       label(v-else) {{ task.title }}
       .icon
-        i.edit.icon(@click="showDetails(task)")
-        i.close.icon(@click="deleteTask(task)", v-if="task.done")
+        i.list.icon(@click.stop="showDetails(task)")
+        i.close.icon(@click.stop="deleteTask(task)", v-if="task.done")
     task-details(v-show="task.detail", :item="task")
+    .ui.divider
 </template>
 
 
@@ -28,7 +29,14 @@
     data(){
       return{
         todo: "abc",
-        tasks: []
+        tasks: [],
+          // {
+          //   title: tsk,
+          //   done: false,
+          //   detail: false,
+          //   content: "",
+          //   date: "",
+          // }
       }
     },
 
@@ -41,6 +49,7 @@
             done: false,
             detail: false,
             content: "",
+            date: "",
           });
           this.todo = "";
         }
@@ -51,6 +60,9 @@
       showDetails: function(tsk){
         tsk.detail = !tsk.detail;
       },
+      toggleTask: function(tsk){
+        tsk.done = !tsk.done;
+      }
     },
 
   }

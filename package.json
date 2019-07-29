@@ -9,7 +9,7 @@
     "build:pug": "pug ./index.pug --out dist --pretty",
     "build:js": "parcel build ./proj.js --public-url .",
     "build:vue": "parcel build index.pug --public-url .",
-    "ser": "python manage.py runserver 0.0.0.0:18888"
+    "ser": "python manage.py runserver 0.0.0.0:10088"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
