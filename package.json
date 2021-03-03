@@ -14,7 +14,7 @@
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
     "parcel": "^1.12.3",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.22.1",
     "vue-template-compiler": "^2.6.10"
